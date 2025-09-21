@@ -1,100 +1,78 @@
-// 4.Create a structure in C++ containing the details of Students as details below and a main function to execute the structure. 
-//             Data Members(properties):
-// 	 Name
-// Roll No
-// Degree
-// Hostel
-// CurrentCGPA
-
-//             Member Function(behavior):
-// addDetails();
-// updateDetails();
-// updateCGPA();
-// updateHostel();
-// displaydetails();
-
-#include <iostream>
-#include <string>
+#include<bits/stdc++.h>
 using namespace std;
-
-struct Student {
-    string name;
-    int rollNo;
-    string degree;
-    string hostel;
-    float currentCGPA;
-
-    void addDetails() {
-        cout << "Enter Name: ";
-        getline(cin, name);
-        cout << "Enter Roll No: ";
-        cin >> rollNo;
-        cin.ignore(); // clear newline from buffer
-        cout << "Enter Degree: ";
-        getline(cin, degree);
-        cout << "Enter Hostel: ";
-        getline(cin, hostel);
-        cout << "Enter Current CGPA: ";
-        cin >> currentCGPA;
-        cin.ignore();
+struct student
+{
+    char name[50];
+    int rollNum;
+    char degree[20];
+    char hostel[10];
+    float currentCG;
+    void addDetails(){
+        cout<<"Enter Name: ";
+        cin.getline(name,50);
+        cout<<"Roll Number: ";
+        cin>>rollNum;
+                cin.ignore();
+        cout<<"Degree: ";
+        cin.getline(degree, 20);
+        cout<<"Hostel: ";
+        cin.getline(hostel,10);
+        cout<<"Enter CGPA";
+        cin>>currentCG;  
     }
-
-    void updateDetails() {
-        cout << "Update Name: ";
-        getline(cin, name);
-        cout << "Update Roll No: ";
-        cin >> rollNo;
+    void update(){
+        int Usercase;
+        cout<<"1: update name";
+        cout<<"2: update degree";
+        cout<<"3: update Hostel";
+        cout<<"4: update CGPA";
         cin.ignore();
-        cout << "Update Degree: ";
-        getline(cin, degree);
-        cout << "Update Hostel: ";
-        getline(cin, hostel);
-        cout << "Update Current CGPA: ";
-        cin >> currentCGPA;
-        cin.ignore();
+        cout<<"what you want to update: ";
+        cin>>Usercase;
+        switch (Usercase)
+        {
+        case 1:
+            cout<<"Update name: ";
+            cin.ignore();
+            cin.getline(name,50);
+            cout<<name;
+            break;
+        case 2:
+            cout<<"Update degree: ";
+            cin.ignore();
+            cin.getline(degree,20);
+            cout<<degree;
+            break;
+        case 4:
+            cout<<"Update CGPA: ";
+            cin.ignore();
+            cin>>currentCG;
+            cout<<currentCG;
+            break;
+        case 3:
+            cout<<"Update Hostel: ";
+            cin.ignore();
+            cin.getline(hostel,10);
+            cout<<hostel;
+            break;
+        
+        default:
+            break;
+        }
     }
-
-    void updateCGPA() {
-        cout << "Enter new CGPA: ";
-        cin >> currentCGPA;
-        cin.ignore();
-    }
-
-    void updateHostel() {
-        cout << "Enter new Hostel: ";
-        getline(cin, hostel);
-    }
-
-    void displayDetails() {
-        cout << "\n--- Student Details ---\n";
-        cout << "Name: " << name << "\n";
-        cout << "Roll No: " << rollNo << "\n";
-        cout << "Degree: " << degree << "\n";
-        cout << "Hostel: " << hostel << "\n";
-        cout << "Current CGPA: " << currentCGPA << "\n";
+    void displayDetails(){
+        cout<<"THe name is"<<name<<"\n";
+        cout<<"THe roll number is"<<rollNum<<"\n";
+        cout<<"The Hostel is"<<hostel<<"\n";
+        cout<<"The CGPA is"<<currentCG<<"\n";
+        cout<<"The Degree is"<<degree<<"\n";
     }
 };
 
-int main() {
-    Student s;
-
-    cout << "Add initial details of the student:\n";
-    s.addDetails();
-
-    cout << "\nDisplaying details:\n";
-    s.displayDetails();
-
-    cout << "\nUpdating hostel:\n";
-    s.updateHostel();
-    s.displayDetails();
-
-    cout << "\nUpdating CGPA:\n";
-    s.updateCGPA();
-    s.displayDetails();
-
-    cout << "\nUpdating all details:\n";
-    s.updateDetails();
-    s.displayDetails();
-
+int main (){
+    student S1;
+    S1.addDetails();
+    S1.update();
+    S1.displayDetails();
     return 0;
 }
