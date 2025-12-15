@@ -49,17 +49,14 @@ class complex{
         cout << real << " + " << imaginary << "i" << endl;
     }
 };
-
 complex operator+(complex &a, complex &b) {
     complex temp;
     temp.real = a.real + b.real;
     temp.imaginary = a.imaginary + b.imaginary;
     return temp;
-}
-
+} 
 
 int main(){
-
     A obj(5,6);
     ++obj;//obj.operator-();
 
